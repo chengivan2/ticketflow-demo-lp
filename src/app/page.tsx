@@ -49,7 +49,7 @@ function Footer() {
               <h3 className="text-xl font-bold">MyTS</h3>
             </div>
             <p className="text-sm text-foreground/70 max-w-sm">
-              Keep your customers happy eith our modern AI-powered ticketing system.
+              Keep your customers happy with our modern AI-powered ticketing system.
             </p>
             <div className="flex items-center space-x-4">
               <ThemeToggle />
