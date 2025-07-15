@@ -11,7 +11,6 @@ import { About } from "@/components/sections/about"
 import { CTA } from "@/components/sections/cta"
 import { Contact } from "@/components/sections/contact"
 
-// Placeholder component for sections
 const SectionPlaceholder = ({ title }: { title: string }) => (
   
 <motion.div className="flex justify-center items-center h-96">
@@ -32,18 +31,14 @@ const SectionPlaceholder = ({ title }: { title: string }) => (
 function Footer() {
   return (
     <footer className="relative overflow-hidden">
-      {/* Background with ticket illustration */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 bg-[url('/images/myts-ticket-illustration.png')]"
       />
       
-      {/* Semi-transparent overlay for better readability */}
       <div className="absolute inset-0 bg-background/50" />
       
-      {/* Content */}
       <div className="relative mesh-bg-blue/30 p-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
           <div className="flex flex-col space-y-4">
             <div className="flex items-center space-x-3">
               <img
@@ -61,7 +56,6 @@ function Footer() {
             </div>
           </div>
           
-          {/* Product Links */}
           <div className="flex flex-col space-y-4">
             <h4 className="font-semibold text-sm uppercase tracking-wider">Product</h4>
             <div className="flex flex-col space-y-2">
@@ -80,7 +74,6 @@ function Footer() {
             </div>
           </div>
           
-          {/* Company Links */}
           <div className="flex flex-col space-y-4">
             <h4 className="font-semibold text-sm uppercase tracking-wider">Company</h4>
             <div className="flex flex-col space-y-2">
@@ -99,7 +92,6 @@ function Footer() {
             </div>
           </div>
           
-          {/* Newsletter Subscription */}
           <div className="flex flex-col space-y-4">
             <h4 className="font-semibold text-sm uppercase tracking-wider">Stay Updated</h4>
             <p className="text-sm text-foreground/70">
@@ -122,7 +114,6 @@ function Footer() {
           </div>
         </div>
         
-        {/* Footer Bottom */}
         <div className="mt-12 pt-8 border-t border-border/50">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
