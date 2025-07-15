@@ -1,103 +1,177 @@
-import Image from "next/image";
+"use client"
+
+import { motion } from "framer-motion"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { Navigation } from "@/components/navigation"
+import { Hero } from "@/components/sections/hero"
+import { Features } from "@/components/sections/features"
+import { FAQ } from "@/components/sections/faq"
+import { Testimonials } from "@/components/sections/testimonials"
+import { About } from "@/components/sections/about"
+import { CTA } from "@/components/sections/cta"
+import { Contact } from "@/components/sections/contact"
+
+// Placeholder component for sections
+const SectionPlaceholder = ({ title }: { title: string }) => (
+  
+<motion.div className="flex justify-center items-center h-96">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
+      className="glass-card p-10 text-center"
+    >
+      <h2 className="text-2xl font-semibold mb-4">{title}</h2>
+      <p className="text-foreground/70">
+        This is a placeholder for the <strong>{title}</strong> section.
+      </p>
+    </motion.div>
+  </motion.div>
+)
+
+function Footer() {
+  return (
+    <footer className="relative overflow-hidden">
+      {/* Background with ticket illustration */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 bg-[url('/images/myts-ticket-illustration.png')]"
+      />
+      
+      {/* Semi-transparent overlay for better readability */}
+      <div className="absolute inset-0 bg-background/50" />
+      
+      {/* Content */}
+      <div className="relative mesh-bg-blue/30 p-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="flex flex-col space-y-4">
+            <div className="flex items-center space-x-3">
+              <img
+                src="/myts-logo.png"
+                alt="MyTS Logo"
+                className="h-10 w-10"
+              />
+              <h3 className="text-xl font-bold">MyTS</h3>
+            </div>
+            <p className="text-sm text-foreground/70 max-w-sm">
+              Keep your customers happy eith our modern AI-powered ticketing system.
+            </p>
+            <div className="flex items-center space-x-4">
+              <ThemeToggle />
+            </div>
+          </div>
+          
+          {/* Product Links */}
+          <div className="flex flex-col space-y-4">
+            <h4 className="font-semibold text-sm uppercase tracking-wider">Product</h4>
+            <div className="flex flex-col space-y-2">
+              <a href="#features" className="text-sm text-foreground/70 hover:text-foreground transition-colors">
+                Features
+              </a>
+              <a href="#pricing" className="text-sm text-foreground/70 hover:text-foreground transition-colors">
+                Pricing
+              </a>
+              <a href="/auth/signin" className="text-sm text-foreground/70 hover:text-foreground transition-colors">
+                Sign In
+              </a>
+              <a href="/auth/signup" className="text-sm text-foreground/70 hover:text-foreground transition-colors">
+                Get Started
+              </a>
+            </div>
+          </div>
+          
+          {/* Company Links */}
+          <div className="flex flex-col space-y-4">
+            <h4 className="font-semibold text-sm uppercase tracking-wider">Company</h4>
+            <div className="flex flex-col space-y-2">
+              <a href="#about" className="text-sm text-foreground/70 hover:text-foreground transition-colors">
+                About
+              </a>
+              <a href="#contact" className="text-sm text-foreground/70 hover:text-foreground transition-colors">
+                Contact
+              </a>
+              <a href="/privacy" className="text-sm text-foreground/70 hover:text-foreground transition-colors">
+                Privacy Policy
+              </a>
+              <a href="/terms" className="text-sm text-foreground/70 hover:text-foreground transition-colors">
+                Terms of Service
+              </a>
+            </div>
+          </div>
+          
+          {/* Newsletter Subscription */}
+          <div className="flex flex-col space-y-4">
+            <h4 className="font-semibold text-sm uppercase tracking-wider">Stay Updated</h4>
+            <p className="text-sm text-foreground/70">
+              Subscribe to our newsletter for product updates and support tips.
+            </p>
+            <form className="flex flex-col space-y-3">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="px-3 py-2 text-sm bg-background/60 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                required
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 text-sm bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        
+        {/* Footer Bottom */}
+        <div className="mt-12 pt-8 border-t border-border/50">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
+              <p className="text-xs text-foreground/50">
+                © 2025 MyTS. All rights reserved.
+              </p>
+              <div className="flex items-center space-x-4">
+                <a href="/privacy" className="text-xs text-foreground/50 hover:text-foreground/70 transition-colors">
+                  Privacy
+                </a>
+                <a href="/terms" className="text-xs text-foreground/50 hover:text-foreground/70 transition-colors">
+                  Terms
+                </a>
+                <a href="/cookies" className="text-xs text-foreground/50 hover:text-foreground/70 transition-colors">
+                  Cookies
+                </a>
+              </div>
+            </div>
+            
+            <div className="flex items-center space-x-4">
+              <p className="text-xs text-foreground/50">
+                Made with ❤️ for better customer support
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+    <div className="overflow-hidden">
+      <Navigation />
+      <Hero />
+      
+      <main className="px-4 sm:px-6 lg:px-8">
+        {/* Sections */}
+        <Features />
+        <Testimonials />
+        <FAQ />
+        <About />
+        <Contact />
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      
+      {/* CTA Section - positioned above footer */}
+      <CTA />
+      <Footer />
     </div>
-  );
+  )
 }
